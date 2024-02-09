@@ -14,10 +14,15 @@
 
 
 <template>
-    <div id="mainBg">
-        <CardTypeInput/>
+    <main>
+        <div id="mainBg">
+            <CardTypeInput/>
+            <div id="mainBodyBg" class="w-75 m-auto p-3">
 
-    </div>
+            </div>
+    
+        </div>
+    </main>
   
 
 
@@ -31,9 +36,15 @@
 
 
 <style lang="scss" scoped>
-    #mainBg{
-        background-color: #d48f38;
-        height: 90vh;
+    main{
+        #mainBg{
+            background-color: #d48f38;
+            height: 90vh;
+            #mainBodyBg{
+                background-color: white;
+                height: 82vh;
+            }
+        }
     }
     
 

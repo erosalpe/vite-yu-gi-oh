@@ -31,6 +31,7 @@
 
 <style lang="scss" scoped>
     #TypeDropdown{
-        padding-left: 30rem;
+        padding-left: 17rem;
+        height: 8vh;
     }
 </style>
