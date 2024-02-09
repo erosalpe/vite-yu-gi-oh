@@ -1,9 +1,15 @@
 <script>
 import SingleCard from './SingleCard.vue'
+import { store } from '../../../store'
     export default {
         name: "CardsContainer",
         components: {
             SingleCard,
+        },
+        data(){
+            return {
+                store
+            }
         }
     }
 </script>
@@ -14,9 +20,12 @@ import SingleCard from './SingleCard.vue'
 
 
 <template>
-    <div id="cardContainer" class="container-fluid">
-        <div class="row">
-            <SingleCard/>
+    <div id="cardContainer">
+        <div class="d-flex flex-wrap">
+            <SingleCard v-for="(element, index) in store.cardList"
+            :key="index" 
+            :propsElement="element"
+            />
         </div>
 
     </div>
@@ -37,7 +46,9 @@ import SingleCard from './SingleCard.vue'
 
 <style lang="scss" scoped>
     #cardContainer{
-        background-color: red;
+        div.d-flex.flex-wrap{
+            gap: 2rem;
+        }
     }
 
 </style>

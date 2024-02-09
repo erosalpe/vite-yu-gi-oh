@@ -21,7 +21,7 @@
     <main>
         <div id="mainBg">
             <CardTypeInput/>
-            <div id="mainBodyBg" class="w-75 m-auto p-3">
+            <div id="mainBodyBg" class="w-75 m-auto p-5">
                 <CardsCounter/>
                 <CardsContainer/>
             </div>
@@ -44,10 +44,8 @@
     main{
         #mainBg{
             background-color: #d48f38;
-            height: 90vh;
             #mainBodyBg{
                 background-color: white;
-                height: 82vh;
             }
         }
     }

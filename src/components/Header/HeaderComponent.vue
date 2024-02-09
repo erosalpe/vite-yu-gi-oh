@@ -25,7 +25,6 @@
 
 <style lang="scss" scoped>
     #headerBg{
-        height: 10vh;
         img{
         width: 6%;
     }
