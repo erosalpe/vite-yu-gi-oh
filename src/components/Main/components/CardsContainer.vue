@@ -26,11 +26,6 @@ import { store } from '../../../store'
             :key="index" 
             :propsElement="element"
             />
-            <div v-if="store.loading" class="d-flex w-100 justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
         </div>
 
     </div>

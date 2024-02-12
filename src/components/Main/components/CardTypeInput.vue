@@ -28,7 +28,9 @@
                     console.log(store.cardList, "vecchia")
                     })
                 }
-                store.loading = false;
+                setTimeout(function(){
+                    store.loading = false;
+                }, 1000);
             }
         }
     }

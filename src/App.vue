@@ -21,15 +21,15 @@
         .get( store.apiUrl ).then(response => {
           store.cardList = response.data.data
         })
-        store.loading = false;
+        setTimeout(function(){
+          store.loading = false;
+        }, 1000);
       },
       getArcheetypes(){
-        store.loading = true;
         axios
         .get( store.archetypeUrl ).then(response => {
           store.archetypeList = response.data
-        })
-        store.loading = false;
+        })   
       } 
     },
     mounted(){
@@ -46,7 +46,12 @@
 <template>
 
   <HeaderComponent/>
-  <MainComponent/>
+  <div v-if="store.loading" class="d-flex w-100 justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+  <MainComponent v-else/>
 
 </template>
 
