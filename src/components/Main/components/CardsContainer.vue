@@ -11,14 +11,6 @@ import { store } from '../../../store'
                 store
             }
         },
-        methods:{
-            ricercaArchetipo(searchedArchetype){
-                if(store.cardList.archetype.includes(searchedArchetype)){
-                console.log(store.cardList.archetype)
-                return false
-                }
-            },
-        }
     }
 </script>
 

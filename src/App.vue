@@ -28,7 +28,6 @@
         axios
         .get( store.archetypeUrl ).then(response => {
           store.archetypeList = response.data
-          console.log(store.archetypeList)
         })
         store.loading = false;
       } 

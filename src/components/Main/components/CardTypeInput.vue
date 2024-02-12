@@ -1,4 +1,5 @@
 <script>
+    import axios from 'axios'
     import { store } from '../../../store'
     export default {
         name: "CardTypeInput",
@@ -7,6 +8,29 @@
                 store
             }
         },
+        methods:{
+            sortCards(){
+                store.cardList = [];
+                store.apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php'
+                store.loading = true;
+                if(store.archetype != 'Scegli il Tipo'){
+                    store.apiUrl += `?&archetype=${store.archetype}`
+                    console.log(store.apiUrl)
+                    axios
+                    .get( store.apiUrl ).then(response => {
+                    store.cardList = response.data.data
+                    console.log(store.cardList, "nuova")
+                    })
+                } else {
+                    axios
+                    .get( store.apiUrl ).then(response => {
+                    store.cardList = response.data.data
+                    console.log(store.cardList, "vecchia")
+                    })
+                }
+                store.loading = false;
+            }
+        }
     }
 </script>
 
@@ -21,7 +45,7 @@
             {{store.archetype}}
         </button>
         <ul class="dropdown-menu overflow-auto">
-            <li class="dropdown-item" @click="store.archetype=element.archetype_name, getCards()" v-for="element,index in store.archetypeList">{{element.archetype_name}}</li>
+            <li class="dropdown-item" @click="store.archetype=element.archetype_name, sortCards()" v-for="element,index in store.archetypeList">{{element.archetype_name}}</li>
         </ul>
     </div>
 </template>
