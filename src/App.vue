@@ -22,10 +22,20 @@
           store.cardList = response.data.data
         })
         store.loading = false;
-      }
+      },
+      getArcheetypes(){
+        store.loading = true;
+        axios
+        .get( store.archetypeUrl ).then(response => {
+          store.archetypeList = response.data
+          console.log(store.archetypeList)
+        })
+        store.loading = false;
+      } 
     },
     mounted(){
       this.getCards()
+      this.getArcheetypes()
     }
   }
 </script>
